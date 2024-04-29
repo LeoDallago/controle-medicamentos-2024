@@ -2,9 +2,8 @@ using ControleMedicamentos.ConsoleApp.utils;
 
 namespace ControleMedicamentos.ConsoleApp;
 
-public class Paciente
+public class Paciente : EntidadeBase
 {
-    public int id;
     public string nome;
     public string CPF;
     public string endereco;

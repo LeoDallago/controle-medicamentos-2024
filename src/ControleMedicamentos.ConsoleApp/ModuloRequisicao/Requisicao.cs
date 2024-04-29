@@ -2,9 +2,8 @@
 namespace ControleMedicamentos.ConsoleApp;
 using ControleMedicamentos.ConsoleApp.utils;
 
-public class Requisicao
+public class Requisicao : EntidadeBase
 {
-	public int id;
 	public string medicamento;
 	public string paciente;
 	public int quantidade;

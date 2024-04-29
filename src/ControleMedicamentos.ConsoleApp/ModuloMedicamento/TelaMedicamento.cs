@@ -1,14 +1,15 @@
 namespace ControleMedicamentos.ConsoleApp;
-public class TelaMedicameto
+public class TelaMedicameto : TelaBase
 {
     Repositorio novoRepositorio = new();
     
     public void ExibeMenuMedicamento()
     {
+        modulo = "medicamento";
+        cor = ConsoleColor.DarkGreen;
 
-        int escolha = Menu.MenuMedicamento();
-
-        switch (escolha)
+          
+        switch (MenuSelecao(modulo, cor))
         {
 
             case 1:
@@ -61,19 +62,6 @@ public class TelaMedicameto
                 ExibeMenuMedicamento();
                 break;
         }
-    }
-
-    private void ApresentaErros(string[] erros)
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-
-        for (int i = 0; i < erros.Length; i++)
-        {
-            Console.WriteLine(erros[i]);
-        }
-
-        Console.ReadLine();
-        Console.ResetColor();
     }
 
     public Medicamento ObterMedicamento()

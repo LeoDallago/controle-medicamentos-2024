@@ -1,23 +1,24 @@
 ﻿using System;
 namespace ControleMedicamentos.ConsoleApp;
 
-public class TelaRequisicao
+public class TelaRequisicao : TelaBase
 {
     RepositorioRequisicao novoRepositorio = new RepositorioRequisicao();
     private TelaMedicameto novaTelaMedicamento;
     private TelaPaciente novaTelaPaciente;
-
+    
     public TelaRequisicao(TelaMedicameto novaTelaMedicamento, TelaPaciente novaTelaPaciente)
     {
         this.novaTelaMedicamento = novaTelaMedicamento;
         this.novaTelaPaciente = novaTelaPaciente;
     }
-
+ 
     public void ExibeMenuRequisicao()
     {
-        int escolha = Menu.MenuRequisicao();
+       modulo = "Requisicao";
+       cor = ConsoleColor.DarkYellow;
 
-        switch (escolha)
+        switch (MenuSelecao(modulo,cor))
         {
             case 1:
                 Console.Clear();
@@ -110,18 +111,5 @@ public class TelaRequisicao
                    registroRequisicao[i].quantidade, registroRequisicao[i].dataValidade
                 );
         }
-    }
-
-    private void ApresentaErros(string[] erros)
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-
-        for (int i = 0; i < erros.Length; i++)
-        {
-            Console.WriteLine(erros[i]);
-        }
-
-        // Console.ReadLine();
-        Console.ResetColor();
     }
 }

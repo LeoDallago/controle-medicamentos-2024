@@ -1,15 +1,16 @@
 ﻿using System;
 namespace ControleMedicamentos.ConsoleApp;
 
-public class TelaPaciente
+public class TelaPaciente : TelaBase
 {
     RepositorioPaciente novoRepositorio = new RepositorioPaciente();
 
     public void ExibeMenuPaciente()
     {
-        int escolha = Menu.MenuPaciente();
+        modulo = "Paciente";
+        cor = ConsoleColor.Blue;
 
-        switch (escolha)
+        switch (MenuSelecao(modulo,cor))
         {
             case 1:
                 Console.Clear();
@@ -62,19 +63,6 @@ public class TelaPaciente
                 ExibeMenuPaciente();
                 break;
         }
-    }
-
-    private void ApresentaErros(string[] erros)
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-
-        for (int i = 0; i < erros.Length; i++)
-        {
-            Console.WriteLine(erros[i]);
-        }
-
-       // Console.ReadLine();
-        Console.ResetColor();
     }
 
     public Paciente ObterPaciente()

@@ -10,9 +10,16 @@
             TelaPaciente novaTelaPaciente = new();
             TelaRequisicao novaTelaRequisicao = new(novaTelaMedicamento, novaTelaPaciente);
 
+            
             while (true)
             {
-                int escolha = Menu.MenuPrincipal();
+                Console.WriteLine("Por favor escolha a opcao desejada \n" +
+                     "1- Gerenciar Medicamentos \n" +
+                     "2- Gerenciar Pacientes \n" +
+                     "3- Gerenciar Requisicoes \n" +
+                     "4- Sair");
+                     int escolha = Convert.ToInt32(Console.ReadLine());
+          
                 switch (escolha)
                 {
                     case 1:
